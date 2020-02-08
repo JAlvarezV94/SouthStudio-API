@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SouthStudioBlog.Models;
+using SouthStudioBlog.Repositories;
 
 namespace SouthStudioBlog
 {
@@ -35,6 +36,8 @@ namespace SouthStudioBlog
             services.AddEntityFrameworkNpgsql().AddDbContext<SSBContext>(opt =>
                         opt.UseNpgsql(StringConnection)
                     );
+
+            services.AddScoped<UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
