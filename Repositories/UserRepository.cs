@@ -17,7 +17,12 @@ namespace SouthStudioBlog.Repositories
 
         public User GetUserById(int idUser)
         {
-            return context.Users.Find(idUser);
+            User user = context.Users.Include(u => u.UserStudyList)
+                .Include(u => u.UserJobList)
+                .Where(u => u.IdUser == idUser)
+                .FirstOrDefault();
+
+            return user;
         }
 
         public List<User> GetUserList()

@@ -21,11 +21,13 @@ namespace SouthStudioBlog.Models
 
         public string StudyCenter { get; set; }
 
-        public DateTime LastModificationDate { get; set; }
+        public DateTime? LastModificationDate { get; set; }
 
         /// <summary>
         /// Variable for soft deletion in database.
         /// </summary>
-        public DateTime LeavingDate { get; set; }
+        public DateTime? LeavingDate { get; set; }
+
+        public int UserIdUser { get; set; }
     }
 }
