@@ -20,6 +20,17 @@ namespace SouthStudioBlog.Controllers
         }
      
         [HttpGet]
+        public IActionResult Get(int idPost)
+        {
+            Post post = postRepository.GetPostById(idPost);
+
+            if (post == null)
+                return Json(new BaseResponser { Success = false, Message = "No se ha podido obtener el post." });
+
+            return Json(new ResponseWrapper<Post> { Success = false, Result = post, Message = "Post obtenido satisfactoriamente." });
+        }
+
+        [HttpGet]
         [Route("List")]
         public IActionResult List()
         {
