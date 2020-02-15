@@ -12,7 +12,7 @@ namespace SouthStudioBlog.Models
         [Key]
         public int IdPost { get; set; }
 
-        public string PostTiltle { get; set; }
+        public string PostTitle { get; set; }
 
         public string PostContent { get; set; }
 

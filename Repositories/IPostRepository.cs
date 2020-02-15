@@ -11,7 +11,7 @@ namespace SouthStudioBlog.Repositories
         void InsertPost(Post newPost);
         List<Post> GetPostList();
         Post GetPostById(int idPost);
-        void UpdatePost(Post postToUpdate);
+        bool UpdatePost(Post postToUpdate);
         void DeletePost(int idPost);
         void Save();
     }

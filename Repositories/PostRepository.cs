@@ -31,9 +31,19 @@ namespace SouthStudioBlog.Repositories
             context.Posts.Add(newPost);
         }
 
-        public void UpdatePost(Post postToUpdate)
+        public bool UpdatePost(Post postToUpdate)
         {
-            context.Entry(postToUpdate).State = EntityState.Modified;
+            var updated = false;
+            var post = context.Posts.Find(postToUpdate.IdPost);
+
+            if(post != null)
+            {
+                context.Entry(post).State = EntityState.Detached;// This line is to untrack the entity from the before action.
+                context.Entry(postToUpdate).State = EntityState.Modified;
+                updated = true;
+            }
+
+            return updated;
         }
 
         public void DeletePost(int idPost)

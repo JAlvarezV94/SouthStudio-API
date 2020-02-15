@@ -30,7 +30,7 @@ namespace SouthStudioBlog.Helpers
         public static bool CheckPostMinFields(Post post)
         {
             return post.UserIdUser > 0 &&
-                !string.IsNullOrEmpty(post.PostTiltle) &&
+                !string.IsNullOrEmpty(post.PostTitle) &&
                 !string.IsNullOrEmpty(post.PostContent) &&
                 post.PostImages.Count > 0;
         }

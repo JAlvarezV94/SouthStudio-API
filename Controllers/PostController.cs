@@ -64,6 +64,30 @@ namespace SouthStudioBlog.Controllers
             return Json(new BaseResponser { Success = true, Message = "El post ha sido guardado." });
         }
 
+        public IActionResult Put(Post post)
+        {
+            // Validations.
+            if (post == null)
+                return Json(new BaseResponser {
+                    Success = false, 
+                    Message = "Es necesario un minimo de información para actualizar un post",
+                });
+
+            bool mandatoryFieldOk = ValidationsHelper.CheckPostMinFields(post);
+            if (!mandatoryFieldOk)
+                return Json(new BaseResponser { Success = false, Message = "Falta información para actualizar el post." });
+
+            // Updating the post.
+            post.LastModificationDate = DateTime.Now;
+            var updated = postRepository.UpdatePost(post);
+            postRepository.Save();
+
+            // Return response.
+            var response = updated ? new BaseResponser { Success = true, Message = "El post se ha actualizado correctamente." } :
+                new BaseResponser { Success = false, Message = "No se encuentra el post a actualizar." };
+
+            return Json(response);
+        }
 
     }
 }
