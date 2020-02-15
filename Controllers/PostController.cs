@@ -4,6 +4,7 @@ using SouthStudioBlog.Models;
 using SouthStudioBlog.Repositories;
 using SouthStudioBlog.Wrappers;
 using System;
+using System.Collections.Generic;
 
 namespace SouthStudioBlog.Controllers
 {
@@ -18,6 +19,21 @@ namespace SouthStudioBlog.Controllers
             this.postRepository = postRepository;
         }
      
+        [HttpGet]
+        [Route("List")]
+        public IActionResult List()
+        {
+            List<Post> postList = postRepository.GetPostList();
+            var responseWrapper = new ResponseWrapper<List<Post>>
+            {
+                Success = true,
+                Result = postList,
+                Message = "Posts obtenidos satisfactoriamente."
+            };
+
+            return Json(responseWrapper);
+        }
+
         [HttpPost]
         public IActionResult Post(Post post)
         {
