@@ -26,6 +26,8 @@ namespace SouthStudioBlog.Models
 
         public List<Job> UserJobList { get; set; }
 
+        public List<Post> UserPostList { get; set; }
+
         public DateTime? LastModificationDate { get; set; }
 
         /// <summary>

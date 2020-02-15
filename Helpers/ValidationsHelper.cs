@@ -8,13 +8,31 @@ namespace SouthStudioBlog.Helpers
 {
     public static class ValidationsHelper
     {
-        public static bool CheckUseMinFields(User user)
+        /// <summary>
+        /// Validate if the user contains the mandatory fields.
+        /// </summary>
+        /// <param name="user">Object User.</param>
+        /// <returns>Boolean.</returns>
+        public static bool CheckUserMinFields(User user)
         {
             return user.IdUser > 0 &&
                 !string.IsNullOrEmpty(user.UserName) &&
                 !string.IsNullOrEmpty(user.UserSurname) &&
                 !string.IsNullOrEmpty(user.UserDescription) &&
                 user.UserBirthday != null;
+        }
+
+        /// <summary>
+        /// Validate if the post contains the mandatory fields.
+        /// </summary>
+        /// <param name="post">Object Post.</param>
+        /// <returns>Boolean.</returns>
+        public static bool CheckPostMinFields(Post post)
+        {
+            return post.UserIdUser > 0 &&
+                !string.IsNullOrEmpty(post.PostTiltle) &&
+                !string.IsNullOrEmpty(post.PostContent) &&
+                post.PostImages.Count > 0;
         }
     }
 }

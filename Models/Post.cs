@@ -18,15 +18,15 @@ namespace SouthStudioBlog.Models
 
         public List<string> PostImages { get; set; }
 
-        public User PostAuthor { get; set; }
+        public int UserIdUser { get; set; }
 
         public DateTime PostCreationDate { get; set; }
 
-        public DateTime LastModificationDate { get; set; }
+        public DateTime? LastModificationDate { get; set; }
 
         /// <summary>
         /// Variable for soft deletion in database.
         /// </summary>
-        public DateTime LeavingDate { get; set; }
+        public DateTime? LeavingDate { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SouthStudioBlog.Models;
@@ -10,9 +11,10 @@ using SouthStudioBlog.Models;
 namespace SouthStudioBlog.Migrations
 {
     [DbContext(typeof(SSBContext))]
-    partial class SSBContextModelSnapshot : ModelSnapshot
+    [Migration("20200215084643_ModifyingDatesNullables")]
+    partial class ModifyingDatesNullables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,6 +105,9 @@ namespace SouthStudioBlog.Migrations
                     b.Property<DateTime?>("LeavingDate")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<int?>("PostAuthorIdUser")
+                        .HasColumnType("integer");
+
                     b.Property<string>("PostContent")
                         .HasColumnType("text");
 
@@ -115,12 +120,9 @@ namespace SouthStudioBlog.Migrations
                     b.Property<string>("PostTiltle")
                         .HasColumnType("text");
 
-                    b.Property<int>("UserIdUser")
-                        .HasColumnType("integer");
-
                     b.HasKey("IdPost");
 
-                    b.HasIndex("UserIdUser");
+                    b.HasIndex("PostAuthorIdUser");
 
                     b.ToTable("Posts");
                 });
@@ -240,11 +242,9 @@ namespace SouthStudioBlog.Migrations
 
             modelBuilder.Entity("SouthStudioBlog.Models.Post", b =>
                 {
-                    b.HasOne("SouthStudioBlog.Models.User", null)
-                        .WithMany("UserPostList")
-                        .HasForeignKey("UserIdUser")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("SouthStudioBlog.Models.User", "PostAuthor")
+                        .WithMany()
+                        .HasForeignKey("PostAuthorIdUser");
                 });
 
             modelBuilder.Entity("SouthStudioBlog.Models.Study", b =>

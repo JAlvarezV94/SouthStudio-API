@@ -38,6 +38,7 @@ namespace SouthStudioBlog
                     );
 
             services.AddScoped<UserRepository>();
+            services.AddScoped<PostRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

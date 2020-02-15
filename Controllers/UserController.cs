@@ -45,7 +45,7 @@ namespace SouthStudioBlog.Controllers
             if (userToUpdate == null)
                 return Json(new BaseResponser() { Success = false, Message = "No se han recibido suficientes datos." });
 
-            bool minimumInfoOk = ValidationsHelper.CheckUseMinFields(userToUpdate);
+            bool minimumInfoOk = ValidationsHelper.CheckUserMinFields(userToUpdate);
             if(!minimumInfoOk)
                 return Json(new BaseResponser() { Success = false, Message = "No se han recibido suficientes datos." });
 
