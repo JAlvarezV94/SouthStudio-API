@@ -22,12 +22,19 @@ namespace SouthStudioBlog.Repositories
                 .Where(u => u.IdUser == idUser)
                 .FirstOrDefault();
 
+            user.UserPassword = null;
+
             return user;
         }
 
         public List<User> GetUserList()
         {
-            return context.Users.ToList();
+            var userList = context.Users.ToList();
+
+            foreach (User user in userList)
+                user.UserPassword = null;
+
+            return userList;
         }
 
         public void InsertUser(User newUser)
