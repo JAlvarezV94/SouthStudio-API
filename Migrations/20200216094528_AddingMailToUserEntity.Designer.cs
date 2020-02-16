@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SouthStudioBlog.Models;
@@ -10,9 +11,10 @@ using SouthStudioBlog.Models;
 namespace SouthStudioBlog.Migrations
 {
     [DbContext(typeof(SSBContext))]
-    partial class SSBContextModelSnapshot : ModelSnapshot
+    [Migration("20200216094528_AddingMailToUserEntity")]
+    partial class AddingMailToUserEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

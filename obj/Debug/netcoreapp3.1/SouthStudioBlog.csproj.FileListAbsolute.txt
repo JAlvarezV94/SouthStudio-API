@@ -34,5 +34,4 @@ C:\Users\alvar\Workspace\SouthStudioBlog\SouthStudioBlog\obj\Debug\netcoreapp3.1
 C:\Users\alvar\Workspace\SouthStudioBlog\SouthStudioBlog\obj\Debug\netcoreapp3.1\SouthStudioBlog.dll
 C:\Users\alvar\Workspace\SouthStudioBlog\SouthStudioBlog\obj\Debug\netcoreapp3.1\SouthStudioBlog.pdb
 C:\Users\alvar\Workspace\SouthStudioBlog\SouthStudioBlog\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\alvar\Workspace\SouthStudioBlog\SouthStudioBlog\obj\Debug\netcoreapp3.1\SouthStudioBlog.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\alvar\Workspace\SouthStudioBlog\SouthStudioBlog\obj\Debug\netcoreapp3.1\SouthStudioBlog.csprojAssemblyReference.cache

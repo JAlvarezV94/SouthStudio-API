@@ -35,6 +35,13 @@ namespace SouthStudioBlog.Repositories
             context.Users.Add(newUser);
         }
 
+        public bool CheckCredentials(string user, string password)
+        {
+            var found = context.Users.Where(u => u.UserEmail == user && u.UserPassword == password).FirstOrDefault();
+
+            return found != null ? true : false;
+        }
+
         public void UpdateUser(User userToUpdate)
         {
             context.Entry(userToUpdate).State = EntityState.Modified;

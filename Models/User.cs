@@ -22,6 +22,10 @@ namespace SouthStudioBlog.Models
 
         public string UserDescription { get; set; }
 
+        public string UserPassword { get; set; }
+
+        public string UserEmail { get; set; }
+
         public List<Study> UserStudyList { get; set; }
 
         public List<Job> UserJobList { get; set; }
